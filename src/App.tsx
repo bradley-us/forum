@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home/Home';
+// import DarKModeSwitcher from './app_components/nav/toggleDarkMode/DarkModeSwitcher';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='lg:container mx-auto'>
+      <Home />
+
+      {/* <div className='bg-white dark:bg-gray-800 min-h-screen flex flex-col items-center transition duration 200'>
+        <DarKModeSwitcher />
+        <h1 className='dark:text-white'>Hola, bienvenido a Light y Darkmode!</h1>
+      </div> */}
     </div>
   );
 }
+
+
 
 export default App;
