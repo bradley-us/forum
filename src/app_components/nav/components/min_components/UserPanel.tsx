@@ -1,4 +1,4 @@
-import userPhoto from '../../../assets/avatar-user.jpg'
+import userPhoto from '../../../../assets/avatar-user.jpg'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const UserPanel = () => {

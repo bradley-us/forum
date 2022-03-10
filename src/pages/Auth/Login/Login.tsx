@@ -1,8 +1,8 @@
-import React from 'react'
+import Loginpage from './views/Loginpage'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <Loginpage />
   )
 }
 

@@ -3,7 +3,9 @@ import Dashboard from './views/Dashboard'
 
 const Home = () => {
   return (
-    <Dashboard />
+    <div className='lg:container mx-auto'>
+      <Dashboard />
+    </div>
   )
 }
 

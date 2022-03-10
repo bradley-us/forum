@@ -36,7 +36,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 ))(({ theme }) => ({
   backgroundColor:
     theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
+      ? 'rgba(255, 255, 255, .01)'
       : '#f4f4f4',
   flexDirection: 'row',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
@@ -48,7 +48,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
+  padding: theme.spacing(1),
   backgroundColor: '#f4f4f4'
 }));
 
@@ -78,7 +78,7 @@ export default function AccordionNav() {
       </Accordion> */}
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Cursos</Typography>
+          <Typography sx={{fontWeight: 'bold', color: '#555'}}>Cursos</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <AccordionDetailsBox selected={courseSelectedStyles} svgCourse={AngularIcon}>Angular</AccordionDetailsBox>

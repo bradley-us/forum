@@ -21,7 +21,7 @@ const DivBanner = () : JSX.Element => {
 
 const CourseIcon = () : JSX.Element => {
   return (
-      <div style={{position: 'absolute', top: '40px'}} className='w-20 bg-white border-4 border-slate-200 rounded-xl p-2'>
+      <div style={{position: 'absolute', bottom: 0}} className='w-20 bg-white border-4 border-slate-200 rounded-xl p-2'>
         <img src={AngularIcon} alt='Angular Favicon' />
       </div>
   )
@@ -50,20 +50,19 @@ const FollowBtn = () : JSX.Element => {
 
 export default function CourseBannerCard() {
   return (
-    <Card sx={{ width: '100%', borderRadius: 4 }}>
-      <CardActionArea>
+    <Card sx={{ width: '100%', background: '#DD1B16', borderRadius: 4 }}>
         <CardMedia
           component={DivBanner}
         />
-        <CardContent sx={{ display: 'flex', flexDirection: 'flex-row', justifyContent: 'flex-start', width: '100%', height: '50px', paddingBottom: 5}}>
+        <CardContent className='bg-[#fff]' sx={{ borderTopLeftRadius: '15px', borderTopRightRadius: '15px', position: 'relative', display: 'flex', flexDirection: 'flex-row', justifyContent: 'flex-start', width: '100%', height: '50px', paddingBottom: 5}}>
           <CourseIcon />
           <Typography sx={{marginLeft: '100px', fontWeight: 'bold', fontSize: '1.4em'}} gutterBottom variant="h5" component="div">
             Angular
           </Typography>
+          
           <FollowBtn />
         </CardContent>
-      </CardActionArea>
-      <CardActions sx={{ padding: '20px' }}>
+      <CardActions className='bg-[#fff]' sx={{ padding: '20px' }}>
         <SearchNav />
       </CardActions>
     </Card>

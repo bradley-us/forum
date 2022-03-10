@@ -16,7 +16,7 @@ const AccordionDetailsCourseTitle = ({children} : {children: string}) => {
 
 const AccordionDetailsBox = ({children, svgCourse, selected} : {children: string, svgCourse: string, selected?: object}) => {
   return (
-    <div style={selected} className='py-2 rounded-lg px-2 cursor-pointer mb-1'>
+    <div style={selected} className='py-2 rounded-lg px-2 cursor-pointer'>
         <div className=' flex flex-row justify-start items-center'>
             <AccordionDetailsCourseSVG svgCourse={svgCourse} />
 
