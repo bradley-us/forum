@@ -1,8 +1,11 @@
 import React from 'react'
+import DiscussionsPanel from '../components/DiscussionsPanel'
 
 const Discussionspage = () => {
   return (
-    <div>Discussionspage</div>
+    <div>
+        <DiscussionsPanel />
+    </div>
   )
 }
 

@@ -1,15 +1,15 @@
 import * as React from 'react';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
+import { CardActions } from '@mui/material';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AngularIcon from '../../assets/cursos_logos/angularjs-original.svg';
-
 
 import SelectForumPanel from './min_components/SelectForumPanel';
 import SearchForumPanel from './min_components/SearchForumPanel';
+import ButtonX from './min_components/ButtonX';
 
 const DivBanner = () : JSX.Element => {
   return(
@@ -21,7 +21,7 @@ const DivBanner = () : JSX.Element => {
 
 const CourseIcon = () : JSX.Element => {
   return (
-      <div style={{position: 'absolute', bottom: 0}} className='w-20 bg-white border-4 border-slate-200 rounded-xl p-2'>
+      <div style={{position: 'absolute', bottom: 0}} className='w-20 p-2 bg-white border-4 border-slate-200 rounded-xl'>
         <img src={AngularIcon} alt='Angular Favicon' />
       </div>
   )
@@ -37,30 +37,24 @@ const SearchNav = () : JSX.Element => {
   )
 }
 
-const FollowBtn = () : JSX.Element => {
-  return (
-      <div className='flex flex-row-reverse w-full'>
-        <div onClick={() => console.log('Following?')} className='py-5 px-4 flex flex-row items-center justify-center bg-green-100 rounded-lg'>
-          <PersonOutlineIcon color='success'></PersonOutlineIcon>
-          <span style={{fontWeight: 'bold', paddingLeft: 10, color: '#3cb371'}}>Siguiendo</span>
-        </div>
-      </div>
-  )
-}
-
-export default function CourseBannerCard() {
+export default function CourseBannerCard() : JSX.Element {
   return (
     <Card sx={{ width: '100%', background: '#DD1B16', borderRadius: 4 }}>
         <CardMedia
           component={DivBanner}
         />
-        <CardContent className='bg-[#fff]' sx={{ borderTopLeftRadius: '15px', borderTopRightRadius: '15px', position: 'relative', display: 'flex', flexDirection: 'flex-row', justifyContent: 'flex-start', width: '100%', height: '50px', paddingBottom: 5}}>
+        <CardContent className='bg-[#fff] h-[0px] rounded-t-2xl relative flex flex-row justify-between' sx={{paddingBottom: 5}}>
           <CourseIcon />
           <Typography sx={{marginLeft: '100px', fontWeight: 'bold', fontSize: '1.4em'}} gutterBottom variant="h5" component="div">
             Angular
           </Typography>
           
-          <FollowBtn />
+          <ButtonX
+            classNameBox='bg-green-100 py-5 text-green-500 right-0'
+            iconBtn={<PersonOutlineIcon />}
+          >
+            Siguiendo
+          </ButtonX>
         </CardContent>
       <CardActions className='bg-[#fff]' sx={{ padding: '20px' }}>
         <SearchNav />
