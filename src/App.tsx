@@ -5,7 +5,7 @@ import Register from './pages/Auth/Register/Register';
 
 function App() {
   return (
-    <div className='dark:bg-gray-900'>
+    <div className='h-screen dark:bg-gray-900'>
       <AllPages />
       {/* <Login /> */}
       {/* <Register /> */}

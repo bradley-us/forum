@@ -3,9 +3,9 @@ import DiscussionsPanel from '../components/DiscussionsPanel'
 
 const Discussionspage = () => {
   return (
-    <div>
+    <>
         <DiscussionsPanel />
-    </div>
+    </>
   )
 }
 

@@ -9,7 +9,7 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 
 const HeaderDiscussionsPanel = () => {
   return (
-    <div className='bg-white border-b dark:bg-slate-800 dark:text-white'>
+    <div className='bg-white border-b dark:border-slate-600 dark:bg-slate-800 dark:text-white'>
       <div>
         <div className='flex flex-col px-6 pt-5'>
           <div className='flex flex-row items-end justify-between w-full py-3'>

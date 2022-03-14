@@ -1,0 +1,12 @@
+/* Inputs inside Body */
+.discussions__inputs:not(:last-child) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+/* @Override styles of the AvatarGroup */
+.css-sxh3gq-MuiAvatar-root-MuiAvatarGroup-avatar {
+    height: 24px !important;
+    width: 24px !important;
+    font-size: 12px !important;
+    margin-left: 0px !important;
+}
