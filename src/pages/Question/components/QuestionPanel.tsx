@@ -1,10 +1,8 @@
-import React from 'react'
 import Header from '../../../app_components/nav/Header'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import HeaderAskPanel from './HeaderAskPanel';
-import BodyAskPanel from './BodyAskPanel';
+import HeaderQuestion from './HeaderQuestion';
 
-const AskPanel = () => {
+const QuestionPanel = () => {
 
   const displayNone = {
     display: 'none'
@@ -22,13 +20,9 @@ const AskPanel = () => {
         </div>
       </Header>
 
-
-
-      <HeaderAskPanel />
-
-      <BodyAskPanel />
+      <HeaderQuestion />      
     </div>
   )
 }
 
-export default AskPanel
+export default QuestionPanel

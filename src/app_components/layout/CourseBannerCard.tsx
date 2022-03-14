@@ -50,7 +50,7 @@ export default function CourseBannerCard() : JSX.Element {
           </Typography>
           
           <ButtonX
-            classNameBox='bg-green-100 py-5 text-green-500 right-0'
+            classNameBox='bg-green-100 !py-5 text-green-500 right-0'
             iconBtn={<PersonOutlineIcon />}
           >
             Siguiendo
