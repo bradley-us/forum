@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import CodeBox from './CodeBox'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined'
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined'
@@ -6,8 +7,11 @@ import {Editable} from 'slate-react';
 
 import Avatar from '../../../../assets/avatar-user.jpg'
 import ButtonX from '../../../../app_components/layout/min_components/ButtonX'
+import SlateEditor from '../../../../app_components/layout/markdown/SlateEditor';
 
 const GiveResponse = () => {
+
+  const [textProvider, setTextProvider] = useState(false)
 
   const onClick = event => {
     // Implement custom event logic...
@@ -32,33 +36,41 @@ const GiveResponse = () => {
     return false;
   };
 
+
+  const handlerTextProvider = () => {
+    setTextProvider(!textProvider)
+  }
+
   return (
     <div className='border-b last:border-none'>
       <div className='w-full px-5 mx-auto'>
-        <div className='flex flex-row py-5 gap-3'>
+        <div className={`flex flex-row ${textProvider? 'items-start':'items-center'} justify-center gap-5 py-5`}>
           <figure className='w-9'>
             <img className='rounded-full' src={Avatar} alt='Profile pic' />
           </figure>
 
           <div className='flex flex-col gap-2 w-full text-sm'>
-            <div className='w-full'>
-            
-            </div>
-            <div className='flex flex-row gap-4 justify-start items-center text-xs'>
-              <ButtonX
-                iconBtn={<ThumbUpOutlinedIcon sx={{fontSize: 18}} />}
-                classNameBox='font-bold !rounded-full border !py-2 border-emerald-200 !px-3 text-green-600'
-              >
-                1232
-              </ButtonX>
-
-              <ButtonX
-                iconBtn={<ThumbDownAltOutlinedIcon sx={{fontSize: 18}} />}
-                classNameBox='font-bold !rounded-full border !py-2 border-red-500 !px-3 text-red-500'
-              >
-                1
-              </ButtonX>
-            </div>
+            {
+              textProvider ?
+              (
+                <div className='flex justify-start items-start flex-col gap-3'>
+                  <SlateEditor></SlateEditor>
+                  <ButtonX
+                    onClick={() => setTextProvider(!textProvider)}
+                    classNameBox='font-bold border border-slate-200'
+                  >
+                    Cancelar
+                  </ButtonX>
+                </div>
+                
+              )
+              :
+              (
+                <div onClick={handlerTextProvider} className='cursor-text text-slate-400 w-full bg-slate-100 py-2 border border-slate-200 rounded-lg px-3'>
+                  Escribe una respuesta
+                </div>
+              )
+            }
           </div>
         </div>
       </div>
