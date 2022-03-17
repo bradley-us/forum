@@ -32,7 +32,7 @@ const FormLogin = () => {
 
   return (
     <ControlBoxLogin>
-      <div className='flex flex-col items-center justify-center'>
+      <div className='flex flex-col items-center'>
         <div className='w-56'>
           <img src={logoWhite} alt='Logo' />
         </div>
@@ -54,7 +54,7 @@ const FormLogin = () => {
 
           {({values, touched, errors, isSubmitting, handleChange, handleBlur}) => (
             <Form className='flex flex-col gap-2 mt-14 w-[300px] mb-[100px]'>
-                <label className='font-bold text-sm' htmlFor='email'>Email</label>
+                <label className='text-sm font-bold' htmlFor='email'>Email</label>
                 <Field
                   className='mt-[-4px] bg-gradient-to-r from-slate-800 to-slate-900 py-2 px-2 rounded-lg border border-slate-700 outline-[0.05px] outline-slate-900'
                   id='email'
@@ -69,7 +69,7 @@ const FormLogin = () => {
                   )
                 }
 
-                <label className='font-bold text-sm mt-3' htmlFor='password'>Password</label>
+                <label className='mt-3 text-sm font-bold' htmlFor='password'>Password</label>
                 <Field
                   className='mt-[-4px] bg-gradient-to-r from-slate-800 to-slate-900 py-2 px-2 rounded-lg border border-slate-700 outline-[0.05px] outline-slate-900'
                   id='password'
@@ -85,7 +85,7 @@ const FormLogin = () => {
                   )
                 }
 
-                <div className='flex flex-row justify-between items-center my-5'>
+                <div className='flex flex-row items-center justify-between my-5'>
                   <label className='cursor-pointer flex flex-row justify-start items-center text-[12px]'>
                   <Checkbox
                     sx={{color: '#ccc'}}
@@ -120,7 +120,7 @@ const FormLogin = () => {
           )}
 
           </Formik>
-          <div className='flex flex-col gap-3 items-center justify-center'>
+          <div className='flex flex-col items-center justify-center gap-3'>
             <h6>¿No tienes una cuenta aún?</h6>
             <Button variant="outlined">¡Regístrate ahora!</Button>
           </div>

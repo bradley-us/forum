@@ -38,7 +38,7 @@ const BodyDiscussionsPanel = () => {
   return (
     <>
       <div className='w-full mt-7'>
-        <div className='w-11/12 max-w-[1280px] rounded-lg mx-auto bg-white dark:bg-slate-800 dark:text-gray-300'>
+        <div className='w-11/12 max-w-[1280px] rounded-lg mx-auto bg-white dark:bg-slate-800'>
           <div className='px-3 py-4 border-b dark:border-slate-600'>
             <h3 className='text-sm font-bold'>Discursiones fijadas</h3>
           </div>
@@ -89,7 +89,7 @@ const BodyDiscussionsPanel = () => {
       </div>
 
       <div className='w-full mt-7'>
-        <div className='w-11/12 max-w-[1280px] rounded-lg mx-auto bg-white dark:bg-slate-800 dark:text-gray-300'>
+        <div className='w-11/12 max-w-[1280px] rounded-lg mx-auto bg-white dark:bg-slate-800'>
             <TabContext value={value}>
               <div className='w-[97%] mx-auto'>
                 <TabList onChange={handleChange} aria-label="lab API tabs example">

@@ -2,7 +2,7 @@ import './style.css'
 
 const WallpaperControlPage = ({children} : {children: any}) => {
   return (
-    <div className='hidden lg:block img__control__page relative'>
+    <div className='relative hidden lg:block img__control__page'>
         {children}
     </div>
   )

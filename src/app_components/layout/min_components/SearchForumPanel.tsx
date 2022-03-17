@@ -3,13 +3,11 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Search = styled('div')(({ theme }) => ({
-    background: '#f1f1f1 !important',
     position: 'relative',
-    border: '2px solid #e1e1e1',
     borderRadius: 10,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
+      backgroundColor: alpha(theme.palette.common.white, 0.05),
     },
     marginRight: theme.spacing(0),
     marginLeft: 0,
@@ -46,7 +44,7 @@ const Search = styled('div')(({ theme }) => ({
 
 const SearchForumPanel = () => {
   return (
-    <Search>
+    <Search className='border dark:border-slate-600 border-slate-200 dark:bg-slate-800'>
         <SearchIconWrapper>
         <SearchIcon />
         </SearchIconWrapper>

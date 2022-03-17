@@ -5,11 +5,14 @@ import Register from './pages/Auth/Register/Register';
 
 function App() {
   return (
-    <div className='h-full lg:min-h-screen dark:bg-gray-900'>
-      {/* <AllPages /> */}
-      <Login />
-      {/* <Register /> */}
+    <div className='h-full dark:bg-gray-900'>
+      <div className='h-full dark:bg-gray-900 dark:text-gray-300'>
+        <AllPages />
+        {/* <Login /> */}
+        {/* <Register /> */}
+      </div>
     </div>
+    
   );
 }
 

@@ -10,14 +10,14 @@ const AccordionDetailsCourseSVG = ({svgCourse} : {svgCourse: string}) => {
 
 const AccordionDetailsCourseTitle = ({children} : {children: string}) => {
   return (
-    <span className='font-bold text-slate-500 ml-2'>{children}</span>
+    <span className='ml-2'>{children}</span>
   )
 }
 
-const AccordionDetailsBox = ({children, svgCourse, selected} : {children: string, svgCourse: string, selected?: object}) => {
+const AccordionDetailsBox = ({children, svgCourse, selected} : {children: string, svgCourse: string, selected?: string}) => {
   return (
-    <div style={selected} className='py-2 rounded-lg px-2 cursor-pointer'>
-        <div className=' flex flex-row justify-start items-center'>
+    <div className={`${selected} font-bold text-slate-400 py-2 rounded-lg px-2 cursor-pointer`}>
+        <div className='flex flex-row items-center justify-start'>
             <AccordionDetailsCourseSVG svgCourse={svgCourse} />
 
             <AccordionDetailsCourseTitle children={children}></AccordionDetailsCourseTitle>

@@ -5,7 +5,7 @@ const ButtonX = (
 
 
   return (
-    <div style={xstylesBox} onClick={onClick} className={`${classNameBox} flex flex-row items-center justify-center px-4 py-2 rounded-lg cursor-pointer ${ iconBtn && children !== undefined ? 'gap-1' : null}`}>
+    <div style={xstylesBox} onClick={onClick} className={`${classNameBox} dark:border-slate-600 flex flex-row items-center justify-center px-4 py-2 rounded-lg cursor-pointer ${ iconBtn && children !== undefined ? 'gap-1' : null}`}>
       {iconBtn}
       <span
         className={`${classNameText}`}

@@ -42,7 +42,7 @@ const FormRegister = () => {
 
   return (
     <ControlBoxLogin>
-      <div className='flex flex-col items-center justify-center'>
+      <div className='flex flex-col'>
         <div className='w-56'>
           <img src={logoWhite} alt='Logo' />
         </div>
@@ -61,7 +61,7 @@ const FormRegister = () => {
         >
         {({values, touched, errors, isSubmitting, handleChange, handleBlur}) => (
           <Form className='flex flex-col gap-2 mt-14 w-[300px] mb-[100px]'>
-              <label className='font-bold text-sm' htmlFor='username'>Nombre de usuario</label>
+              <label className='text-sm font-bold' htmlFor='username'>Nombre de usuario</label>
               <Field
                 className='mt-[-4px] bg-gradient-to-r from-slate-800 to-slate-900 py-2 px-2 rounded-lg border border-slate-700 outline-[0.05px] outline-slate-900'
                 id='username'
@@ -76,7 +76,7 @@ const FormRegister = () => {
                 )
               }
 
-              <label className='font-bold text-sm mt-3' htmlFor='email'>Email</label>
+              <label className='mt-3 text-sm font-bold' htmlFor='email'>Email</label>
               <Field
                 className='mt-[-4px] bg-gradient-to-r from-slate-800 to-slate-900 py-2 px-2 rounded-lg border border-slate-700 outline-[0.05px] outline-slate-900'
                 id='email'
@@ -91,7 +91,7 @@ const FormRegister = () => {
                 )
               }
 
-              <label className='font-bold text-sm mt-3' htmlFor='password'>Contraseña</label>
+              <label className='mt-3 text-sm font-bold' htmlFor='password'>Contraseña</label>
               <Field
                 className='mt-[-4px] bg-gradient-to-r from-slate-800 to-slate-900 py-2 px-2 rounded-lg border border-slate-700 outline-[0.05px] outline-slate-900'
                 id='password'
@@ -107,7 +107,7 @@ const FormRegister = () => {
                 )
               }
 
-              <label className='font-bold text-sm mt-3' htmlFor='confirmPwd'>Confirmar contraseña</label>
+              <label className='mt-3 text-sm font-bold' htmlFor='confirmPwd'>Confirmar contraseña</label>
               <Field
                 className='mt-[-4px] bg-gradient-to-r from-slate-800 to-slate-900 py-2 px-2 rounded-lg border border-slate-700 outline-[0.05px] outline-slate-900'
                 id='confirmPwd'
@@ -142,7 +142,7 @@ const FormRegister = () => {
             </Form>
           )}
           </Formik>
-          <div className='flex flex-col gap-3 items-center justify-center'>
+          <div className='flex flex-col items-center justify-center gap-3'>
             <h6>Si tienes ya una cuenta:</h6>
             <Button variant="outlined">¡Entra ahora!</Button>
           </div>

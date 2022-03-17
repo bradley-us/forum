@@ -5,11 +5,11 @@ import Question from './Question/Question'
 
 const AllPages = () : JSX.Element => {
   return (
-    <div className='mx-auto'>
+    <div className='pb-20 mx-auto'>
         {/* <Discussions /> */}
-        {/* <Home /> */}
+        <Home />
         {/* <Ask /> */}
-        <Question />
+        {/* <Question /> */}
     </div>
   )
 }

@@ -149,7 +149,7 @@ export default function SelectForumPanel() {
   const [value, setValue] = React.useState<number | null>(10);
   return (
     <div>
-      <CustomSelect value={value} onChange={setValue}>
+      <CustomSelect className='dark:bg-slate-800 dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700' value={value} onChange={setValue}>
         <StyledOption value={10} disabled>Ordenar por</StyledOption>
         <StyledOption value={20}>Twenty</StyledOption>
         <StyledOption value={30}>Thirty</StyledOption>

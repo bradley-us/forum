@@ -4,11 +4,11 @@ const SearchNav = () : JSX.Element => {
   return (
     <div>
         <label
-            className='bg-slate-100 appearance-none border border-slate-300 rounded-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-sky-200'
+            className='dark:bg-slate-800 dark:border-slate-600 bg-slate-100 appearance-none border border-slate-300 rounded-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-sky-200'
             htmlFor='search'>
             <SearchIcon sx={{color: '#ccc'}}></SearchIcon>
             <input
-                className='font-bold text-gray-700 bg-slate-100 text-sm ml-3 focus:outline-none w-24'
+                className='w-24 ml-3 text-sm font-bold text-gray-700 dark:bg-slate-800 dark:border-slate-600 bg-slate-100 focus:outline-none'
                 type='text'
                 placeholder='Buscar'
                 name='search'

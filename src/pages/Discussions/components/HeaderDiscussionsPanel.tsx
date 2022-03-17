@@ -9,7 +9,7 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 
 const HeaderDiscussionsPanel = () => {
   return (
-    <div className='bg-white border-b dark:border-slate-600 dark:bg-slate-800 dark:text-white'>
+    <div className='bg-white border-b dark:border-slate-600 dark:bg-slate-800'>
       <div>
         <div className='flex flex-col px-6 pt-5'>
           <div className='flex flex-row items-end justify-between w-full py-3'>
@@ -47,7 +47,7 @@ const HeaderDiscussionsPanel = () => {
               </ButtonX>
 
               <ButtonX
-                classNameBox='text-sm px-[25px] font-bold bg-slate-200 text-slate-500'
+                classNameBox='dark:text-gray-300 dark:bg-slate-800 dark:border dark:border-slate-600 text-sm px-[25px] font-bold bg-slate-200 text-slate-500'
                 iconBtn={<PushPinOutlinedIcon sx={{fontSize: '20px'}} />}
               />
             </div>

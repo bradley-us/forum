@@ -1,4 +1,6 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState, useEffect } from 'react'
+// import Prism from 'prismjs'
+
 import isHotkey from 'is-hotkey'
 import { Editable, withReact, useSlate, Slate } from 'slate-react'
 import {
@@ -6,6 +8,7 @@ import {
   Transforms,
   createEditor,
   Element as SlateElement,
+  Text,
 } from 'slate'
 import { withHistory } from 'slate-history'
 
@@ -14,6 +17,8 @@ import * as Btn from './ButtonsStyles'
 import { Button, Icon, Toolbar } from './Components'
 
 import './styles.css'
+
+import TabPanel from '@mui/lab/TabPanel'
 
 const HOTKEYS = {
   'mod+b': 'bold',
@@ -25,18 +30,65 @@ const HOTKEYS = {
 const LIST_TYPES = ['numbered-list', 'bulleted-list']
 const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify']
 
-const SlateEditor = ({classNameToolbar = 'justify-start', children = ''}) => {
+export function getEditorText(value) {
+  return [value]
+}
+
+const SlateEditor = ({classNameToolbar = 'justify-start', displayToggleToolbar = null, children = null}) => {
   const [value, setValue] = useState(initialValue)
   const renderElement = useCallback(props => <Element {...props} />, [])
   const renderLeaf = useCallback(props => <Leaf {...props} />, [])
   const editor = useMemo(() => withHistory(withReact(createEditor())), [])
 
+  useEffect(() => {
+    getEditorText(value)
+  }, [value]);
+
+  // const decorate = useCallback(([node, path]) => {
+  //   const ranges = []
+
+  //   if (!Text.isText(node)) {
+  //     return ranges
+  //   }
+
+  //   const getLength = token => {
+  //     if (typeof token === 'string') {
+  //       return token.length
+  //     } else if (typeof token.content === 'string') {
+  //       return token.content.length
+  //     } else {
+  //       return token.content.reduce((l, t) => l + getLength(t), 0)
+  //     }
+  //   }
+
+  //   const tokens = Prism.tokenize(node.text, Prism.languages.markdown)
+  //   let start = 0
+
+  //   for (const token of tokens) {
+  //     const length = getLength(token)
+  //     const end = start + length
+
+  //     if (typeof token !== 'string') {
+  //       ranges.push({
+  //         [token.type]: true,
+  //         anchor: { path, offset: start },
+  //         focus: { path, offset: end },
+  //       })
+  //     }
+
+  //     start = end
+  //   }
+
+  //   return ranges
+  // }, [])
+
   return (
-    <div className='rounded-lg border border-slate-100'>
+    <div className='w-full border rounded-lg dark:border-slate-600 border-slate-100'>
       <Slate editor={editor} value={value} onChange={value => setValue(value)}>
-      <div className={`${classNameToolbar} w-full mx-auto flex rounded-t-lg flex-row items-center bg-slate-100`}>
+      <div className={`${classNameToolbar} dark:bg-slate-800 w-full mx-auto flex rounded-t-lg flex-row bg-slate-100 px-1`}>
         {children}
-        <Toolbar className='rounded-t-lg !border-none flex flex-row justify-center items-center flex-wrap'>
+        <div className={`${displayToggleToolbar}`}>
+        <Toolbar className='rounded-t-lg !border-none flex flex-row justify-start items-center flex-wrap'>
         <MarkButton format="bold" icon={<Btn.BoldIcon/>} />
         <MarkButton format="italic" icon={<Btn.ItalyIcon/>} />
         <MarkButton format="underline" icon={<Btn.UnderlinedIcon/>} />
@@ -52,12 +104,13 @@ const SlateEditor = ({classNameToolbar = 'justify-start', children = ''}) => {
         <BlockButton format="justify" icon={<Btn.TextJustifyIcon/>} />
       </Toolbar>
       </div>
-      <div className='p-2'>
+      </div>
+      <TabPanel className='!p-1' value="1">
         <Editable
-          className='!w-full p-2 bg-slate-100 rounded-lg'
+          className='!w-full p-2 bg-slate-100 rounded-md dark:bg-slate-700'
           renderElement={renderElement}
           renderLeaf={renderLeaf}
-          placeholder="Enter some rich text…"
+          placeholder='Escribe...'
           spellCheck
           autoFocus
           onKeyDown={event => {
@@ -70,11 +123,21 @@ const SlateEditor = ({classNameToolbar = 'justify-start', children = ''}) => {
             }
           }}
         />
-      </div>
-      
+      </TabPanel>
     </Slate>
-    </div>
     
+    <TabPanel className='!p-1' value="2">
+      <Slate editor={editor} value={value} onChange={value => setValue(value)}>
+        <Editable
+          // decorate={decorate}
+          readOnly
+          className='p-2'
+          renderLeaf={renderLeaf}
+          placeholder="¿Has escrito algo? Previsualiza lo que escribiste en esta sección"
+        />
+      </Slate>
+    </TabPanel>
+  </div>
   )
 }
 
@@ -149,7 +212,7 @@ const Element = ({ attributes, children, element }) => {
   switch (element.type) {
     case 'block-quote':
       return (
-        <blockquote className='border-l-4 border-slate-200 pl-5' style={style} {...attributes}>
+        <blockquote className='pl-5 border-l-4 border-slate-200' style={style} {...attributes}>
           {children}
         </blockquote>
       )
@@ -173,7 +236,7 @@ const Element = ({ attributes, children, element }) => {
       )
     case 'list-item':
       return (
-        <li className='ml-6 list-disc' style={style} {...attributes}>
+        <li className='ml-6' style={style} {...attributes}>
           {children}
         </li>
       )
@@ -198,7 +261,7 @@ const Leaf = ({ attributes, children, leaf }) => {
   }
 
   if (leaf.code) {
-    children = <code className='p-1 bg-slate-200 rounded-md'>{children}</code>
+    children = <code className='p-1 rounded-md dark:bg-slate-800 bg-slate-200'>{children}</code>
   }
 
   if (leaf.italic) {
@@ -246,42 +309,48 @@ const MarkButton = ({ format, icon }) => {
   )
 }
 
-const initialValue = [
-  {
-    type: 'paragraph',
-    children: [
-      { text: 'This is editable ' },
-      { text: 'rich', bold: true },
-      { text: ' text, ' },
-      { text: 'much', italic: true },
-      { text: ' better than a ' },
-      { text: '<textarea>', code: true },
-      { text: '!' },
-    ],
-  },
-  {
-    type: 'paragraph',
-    children: [
-      {
-        text:
-          "Since it's rich text, you can do things like turn a selection of text ",
-      },
-      { text: 'bold', bold: true },
-      {
-        text:
-          ', or add a semantically rendered block quote in the middle of the page, like this:',
-      },
-    ],
-  },
-  {
-    type: 'block-quote',
-    children: [{ text: 'A wise quote.' }],
-  },
-  {
-    type: 'paragraph',
-    align: 'center',
-    children: [{ text: 'Try it out for yourself!' }],
-  },
-]
+const initialValue = [{
+      type: 'paragraph',
+      children: [
+        { text: ''},
+      ],
+    }]
+// [
+//   {
+//     type: 'paragraph',
+//     children: [
+//       { text: 'This is editable ' },
+//       { text: 'rich', bold: true },
+//       { text: ' text, ' },
+//       { text: 'much', italic: true },
+//       { text: ' better than a ' },
+//       { text: '<textarea>', code: true },
+//       { text: '!' },
+//     ],
+//   },
+//   {
+//     type: 'paragraph',
+//     children: [
+//       {
+//         text:
+//           "Since it's rich text, you can do things like turn a selection of text ",
+//       },
+//       { text: 'bold', bold: true },
+//       {
+//         text:
+//           ', or add a semantically rendered block quote in the middle of the page, like this:',
+//       },
+//     ],
+//   },
+//   {
+//     type: 'block-quote',
+//     children: [{ text: 'A wise quote.' }],
+//   },
+//   {
+//     type: 'paragraph',
+//     align: 'center',
+//     children: [{ text: 'Try it out for yourself!' }],
+//   },
+// ]
 
 export default SlateEditor

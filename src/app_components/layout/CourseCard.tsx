@@ -5,29 +5,33 @@ import { CardActionArea, CardActions } from '@mui/material';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 
 interface CourseCardBannerProps {
-  background?: string,
+  bgcolor?: string,
   circleBg?: string,
   iconColor?: string,
   titleCard?: string,
   numberModule?: any,
   bodyText?: string,
-  questions?: number
+  questions?: number,
+  defaultCard?: boolean
 }
 
 const CourseCardBanner = ( props : CourseCardBannerProps ) => {
-  const {background, circleBg, iconColor, titleCard, numberModule } = props
+  const {bgcolor, circleBg, iconColor, titleCard, numberModule, defaultCard } = props
   
   return (
-    <div style={{backgroundColor: background}} className='flex flex-row items-center justify-center text-white h-28'>
+    <div
+      style={{backgroundColor: `#${bgcolor}`}}
+      className={`flex flex-row items-center justify-center text-white h-28`}
+    >
       <div className='flex flex-row items-center justify-center w-full'>
         <div
-          style={{backgroundColor: circleBg, color: iconColor}}
-          className='mr-5 text-[24px] leading-10 rounded-full inline-block font-bold text-center w-[40px]'
+          style={{background: `#${circleBg}`, color: `#${iconColor}`}}
+          className={`mr-5 text-[24px] leading-10 rounded-full inline-block font-bold text-center w-[40px]`}
         >
           {numberModule}
         </div>
 
-        <span className='text-xl'>
+        <span className='text-xl dark:text-slate-200'>
           <strong>{titleCard}</strong>
         </span>
       </div>
@@ -47,27 +51,31 @@ const CourseCardFooter = ({questions} : CourseCardBannerProps) => {
 }
 
 export default function CourseCard( props : CourseCardBannerProps ) {
-  const {background, circleBg, iconColor, titleCard, numberModule, bodyText, questions} = props
+  const {bgcolor, circleBg, iconColor, titleCard, numberModule, bodyText, questions, defaultCard} = props
 
   return (
-    <Card sx={{ minWidth: 255, maxWidth: 255, borderRadius: 4 }}>
+    <Card className='border border-slate-200 dark:border-slate-600 min-w-[245px] max-w-[245px] !rounded-xl'>
       <CardActionArea>
         <CourseCardBanner
           iconColor={iconColor}
-          background={background}
+          bgcolor={bgcolor}
           circleBg={circleBg}
           titleCard={titleCard}
           numberModule={numberModule}
+          defaultCard={defaultCard}
         />
 
+      <div className='dark:bg-slate-800 dark:text-gray-300'>
         <CardContent>
-          <Typography sx={{height: 60, fontWeight: 'bold'}} variant="body1" color="text.primary">
+          <Typography sx={{height: 60, fontWeight: 'bold'}} variant="body1">
             {bodyText}
           </Typography>
         </CardContent>
+
         <CardActions>
-        <CourseCardFooter questions={questions} />
-      </CardActions>
+          <CourseCardFooter questions={questions} />
+        </CardActions>
+      </div>
       </CardActionArea>
     </Card>
   );
