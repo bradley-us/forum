@@ -3,6 +3,7 @@ import logoWhite from '../../../../assets/logo/logoFaviconWhite.svg'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const registerSchema = Yup.object().shape(
   {
@@ -144,7 +145,7 @@ const FormRegister = () => {
           </Formik>
           <div className='flex flex-col items-center justify-center gap-3'>
             <h6>Si tienes ya una cuenta:</h6>
-            <Button variant="outlined">¡Entra ahora!</Button>
+            <Button variant="outlined"><Link to='/login'>¡Entra ahora!</Link></Button>
           </div>
         </div>
       </div>

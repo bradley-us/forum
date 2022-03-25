@@ -4,6 +4,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
+import './style.css'
+
 import useDarkModeToggle from '../../../../hooks/useDarkModeToggle'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -59,14 +61,14 @@ export default function ThemeSwitch() {
   const [darkMode, setDarkMode] = useState( colorTheme === 'light' ? true : false)
 
   const toggleDarkMode = () : void => {
-    setColorTheme(colorTheme);
-    setDarkMode(!darkMode);
+    setColorTheme(colorTheme)
+    setDarkMode(!darkMode)
   }
 
   return (
     <FormGroup>
       <FormControlLabel
-        control={<MaterialUISwitch sx={{ m: 1 }} onChange={toggleDarkMode} />}
+        control={<MaterialUISwitch sx={{ m: 1 }} checked={darkMode} onChange={toggleDarkMode} />}
         label=""
       />
     </FormGroup>

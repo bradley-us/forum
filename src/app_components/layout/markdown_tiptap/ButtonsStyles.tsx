@@ -11,15 +11,21 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft'
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter'
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight'
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify'
+import FormatStrikethroughIcon from '@mui/icons-material/FormatStrikethrough'
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions'
+import RedoIcon from '@mui/icons-material/Redo'
+import UndoIcon from '@mui/icons-material/Undo'
 
 import SmIconX from "../min_components/SmIconX"
+import SmallMenuOptions from '../min_components/SmallMenuOptions'
 
 const styles = null
+const iconStyles = {fontSize: 20}
 
 export const BoldIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatBoldIcon />
+      <FormatBoldIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -27,7 +33,7 @@ export const BoldIcon = () : JSX.Element => {
 export const ItalyIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatItalicIcon />
+      <FormatItalicIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -35,7 +41,7 @@ export const ItalyIcon = () : JSX.Element => {
 export const UnderlinedIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatUnderlinedIcon />
+      <FormatUnderlinedIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -43,7 +49,7 @@ export const UnderlinedIcon = () : JSX.Element => {
 export const CodedIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <CodeIcon />
+      <CodeIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -51,7 +57,7 @@ export const CodedIcon = () : JSX.Element => {
 export const HeadOneIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <TextIncreaseIcon />
+      <TextIncreaseIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -59,7 +65,7 @@ export const HeadOneIcon = () : JSX.Element => {
 export const HeadTwoIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <TextDecreaseIcon />
+      <TextDecreaseIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -67,7 +73,7 @@ export const HeadTwoIcon = () : JSX.Element => {
 export const QuoteIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatQuoteIcon />
+      <FormatQuoteIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -75,7 +81,7 @@ export const QuoteIcon = () : JSX.Element => {
 export const ListNoIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatListNumberedIcon />
+      <FormatListNumberedIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -83,7 +89,7 @@ export const ListNoIcon = () : JSX.Element => {
 export const ListIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatListBulletedIcon />
+      <FormatListBulletedIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -91,7 +97,7 @@ export const ListIcon = () : JSX.Element => {
 export const TextLeftIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatAlignLeftIcon />
+      <FormatAlignLeftIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -99,7 +105,7 @@ export const TextLeftIcon = () : JSX.Element => {
 export const TextCenterIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatAlignCenterIcon />
+      <FormatAlignCenterIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -107,7 +113,7 @@ export const TextCenterIcon = () : JSX.Element => {
 export const TextRightIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatAlignRightIcon />
+      <FormatAlignRightIcon sx={iconStyles} />
     </SmIconX>
   )
 }
@@ -115,7 +121,48 @@ export const TextRightIcon = () : JSX.Element => {
 export const TextJustifyIcon = () : JSX.Element => {
   return (
     <SmIconX className={styles}>
-      <FormatAlignJustifyIcon />
+      <FormatAlignJustifyIcon sx={iconStyles} />
     </SmIconX>
+  )
+}
+
+export const StrikeTextIcon = () : JSX.Element => {
+  return (
+    <SmIconX className={styles}>
+      <FormatStrikethroughIcon sx={iconStyles} />
+    </SmIconX>
+  )
+}
+
+export const CodeBlockIcon = () => {
+  return (
+    <SmIconX className={styles}>
+      <IntegrationInstructionsIcon sx={iconStyles} />
+    </SmIconX>
+  )
+}
+
+export const ReDoIcon = () => {
+  return (
+    <SmIconX className={styles}>
+      <RedoIcon sx={iconStyles} />
+    </SmIconX>
+  )
+}
+
+export const UnDoIcon = () => {
+  return (
+    <SmIconX className={styles}>
+      <UndoIcon sx={iconStyles} />
+    </SmIconX>
+  )
+}
+
+export const MenuOptions = ({menuSubOptionsProps, menuTitleProp}:any) => {
+  return (
+    <SmallMenuOptions
+      menuSubOptions={menuSubOptionsProps}
+      menuTitle={menuTitleProp}
+    />
   )
 }

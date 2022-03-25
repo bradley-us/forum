@@ -1,8 +1,12 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
-import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import { CardActionArea, CardActions } from '@mui/material'
+
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined'
+import CommentIcon from '@mui/icons-material/Comment'
+import AccountTreeIcon from '@mui/icons-material/AccountTree'
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred'
 
 interface CourseCardBannerProps {
   bgcolor?: string,
@@ -17,6 +21,19 @@ interface CourseCardBannerProps {
 
 const CourseCardBanner = ( props : CourseCardBannerProps ) => {
   const {bgcolor, circleBg, iconColor, titleCard, numberModule, defaultCard } = props
+
+  const defaultCardIcons = (numberModule:number) => {
+    switch (numberModule) {
+      case -2:
+        return <CommentIcon />
+      case -1:
+        return <ReportGmailerrorredIcon />
+      case 0:
+        return <AccountTreeIcon />
+      default:
+        return numberModule
+    }
+  }
   
   return (
     <div
@@ -28,7 +45,7 @@ const CourseCardBanner = ( props : CourseCardBannerProps ) => {
           style={{background: `#${circleBg}`, color: `#${iconColor}`}}
           className={`mr-5 text-[24px] leading-10 rounded-full inline-block font-bold text-center w-[40px]`}
         >
-          {numberModule}
+          { defaultCardIcons(numberModule) }
         </div>
 
         <span className='text-xl dark:text-slate-200'>
@@ -54,7 +71,7 @@ export default function CourseCard( props : CourseCardBannerProps ) {
   const {bgcolor, circleBg, iconColor, titleCard, numberModule, bodyText, questions, defaultCard} = props
 
   return (
-    <Card className='border border-slate-200 dark:border-slate-600 min-w-[245px] max-w-[245px] !rounded-xl'>
+    <Card className='min-w-[245px] max-w-[245px] !rounded-xl'>
       <CardActionArea>
         <CourseCardBanner
           iconColor={iconColor}

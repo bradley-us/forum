@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import { Link } from 'react-router-dom';
 
 interface ValuesProps {
   email: string,
@@ -122,7 +123,7 @@ const FormLogin = () => {
           </Formik>
           <div className='flex flex-col items-center justify-center gap-3'>
             <h6>¿No tienes una cuenta aún?</h6>
-            <Button variant="outlined">¡Regístrate ahora!</Button>
+            <Button variant="outlined"><Link to='/register'>¡Regístrate ahora!</Link></Button>
           </div>
         </div>
       </div>

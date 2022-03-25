@@ -1,22 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { setUserAuthFalse } from '../../../../store/actions/actions'
+
 import userPhoto from '../../../../assets/avatar-user.jpg'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import ThemeSwitch from '../toggleDarkMode/ThemeSwitch';
+import Box from '@mui/material/Box'
+import Avatar from '@mui/material/Avatar'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import Tooltip from '@mui/material/Tooltip'
+import Settings from '@mui/icons-material/Settings'
+import Logout from '@mui/icons-material/Logout'
 
-const UserPanel = () => {
+import ThemeSwitch from '../toggleDarkMode/ThemeSwitch'
+
+const UserPanel = (props:any) => {
+
+  const { setAuthFalse } = props
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -30,7 +33,6 @@ const UserPanel = () => {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <ThemeSwitch />
         <Tooltip title="Ajustes">
           <IconButton
             onClick={handleClick}
@@ -82,34 +84,36 @@ const UserPanel = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
-          <Avatar /> Profile
+        <MenuItem sx={{display: 'flex', justifyContent: 'center'}}>
+          <ThemeSwitch />
         </MenuItem>
         <MenuItem>
-          <Avatar /> My account
+          <Avatar /> Profile
         </MenuItem>
         <Divider />
         <MenuItem>
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Ajustes
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setAuthFalse()}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          Cerrar sesión
         </MenuItem>
       </Menu>
     </React.Fragment>
   )
 }
 
-export default UserPanel
+const mapDispatchToProps = (dispatch:any) => {
+  return {
+    setAuthFalse: () => {
+      dispatch(setUserAuthFalse())
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(UserPanel)

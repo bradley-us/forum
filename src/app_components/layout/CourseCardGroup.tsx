@@ -1,11 +1,8 @@
 import { useState } from 'react'
 import CourseCard from './CourseCard'
-import CommentIcon from '@mui/icons-material/Comment';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 const cardGeneral = {
-    id: <CommentIcon />,
+    id: -2,
     title: 'General',
     body: 'Dudas general',
     questions: 231,
@@ -16,7 +13,7 @@ const cardGeneral = {
 }
 
 const cardError = {
-    id: <ReportGmailerrorredIcon />,
+    id: -1,
     title: 'Errores',
     body: 'Errores',
     questions: 23,
@@ -27,7 +24,7 @@ const cardError = {
 }
 
 const cardProjects = {
-    id: <AccountTreeIcon />,
+    id: 0,
     title: 'Proyectos',
     body: 'Proyectos',
     questions: 12,

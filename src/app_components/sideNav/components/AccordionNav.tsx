@@ -26,11 +26,11 @@ export default function AccordionNav() {
     };
 
   return (
-    <div>
+    <div className='md:pl-10'>
       <Accordion
         sx={{bgcolor: '#f4f4f4'}}
         expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
-        className='!shadow-none !border-none dark:bg-slate-800 dark:text-slate-300'
+        className='!shadow-none w-full !border-none dark:bg-slate-800 dark:text-slate-300'
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon className='dark:text-slate-300 text-slate-500' />}

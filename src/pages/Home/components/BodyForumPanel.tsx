@@ -3,7 +3,7 @@ import CourseCardGroup from "../../../app_components/layout/CourseCardGroup"
 
 const BodyForumPanel = () => {
   return (
-    <div className="flex flex-row flex-wrap gap-5 items-center justify-start py-10 px-10">
+    <div className="flex flex-row flex-wrap items-center justify-center gap-5 px-10 py-10 sm:justify-start">
       <CourseCardGroup />
     </div>
   )

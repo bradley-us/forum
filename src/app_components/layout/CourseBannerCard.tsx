@@ -13,7 +13,7 @@ import ButtonX from './min_components/ButtonX';
 
 const DivBanner = () : JSX.Element => {
   return(
-    <div className='dark:bg-slate-700 h-[70px] bg-[##DD1B16]'>
+    <div className='dark:bg-slate-700 h-[70px] dark:bg-[#DD1B16] bg-[#DD1B16]'>
     </div>
   )
 }
@@ -39,18 +39,18 @@ const SearchNav = () : JSX.Element => {
 
 export default function CourseBannerCard() : JSX.Element {
   return (
-    <Card className='dark:bg-slate-700' sx={{ width: '100%', background: '#DD1B16', borderRadius: 4 }}>
+    <Card className='mt-10 dark:bg-[#DD1B16] sm:mt-0' sx={{ width: '100%', background: '#DD1B16', borderRadius: 4 }}>
         <CardMedia
           component={DivBanner}
         />
-        <CardContent className='relative flex flex-row justify-between h-0 bg-white dark:bg-slate-800 dark:text-gray-300 rounded-t-2xl' sx={{paddingBottom: 5}}>
+        <CardContent className='relative flex flex-row flex-wrap justify-between bg-white h-22 sm:h-0 dark:bg-slate-800 dark:text-gray-300 rounded-t-2xl' sx={{paddingBottom: 5}}>
           <CourseIcon />
           <Typography sx={{marginLeft: '100px', fontWeight: 'bold', fontSize: '1.4em'}} gutterBottom variant="h5" component="div">
             Angular
           </Typography>
           
           <ButtonX
-            classNameBox='bg-green-100 !py-5 text-green-500 right-0'
+            classNameBox='absolute right-5 top-12 sm:static bg-green-100 text-green-500 right-0'
             iconBtn={<PersonOutlineIcon />}
           >
             Siguiendo

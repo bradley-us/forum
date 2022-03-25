@@ -42,7 +42,7 @@ const HeaderAskPanel = () => {
             <p>How to do the same using edge</p>
           </div>
 
-          <CodeBox>
+          <CodeBox classNameCodeBox={`my-5`}>
             {`
   p { color: red; }
     body { background-color: #eee; }

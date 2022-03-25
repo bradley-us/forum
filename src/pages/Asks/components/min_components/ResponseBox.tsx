@@ -4,15 +4,10 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined'
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined'
 
-import { getEditorText } from '../../../../app_components/layout/markdown/SlateEditor'
-
 import Avatar from '../../../../assets/avatar-user.jpg'
 import ButtonX from '../../../../app_components/layout/min_components/ButtonX'
-import { useState } from 'react'
 
 const ResponseBox = () => {
-
-  const [value, setValue] = useState(getEditorText)
 
   return (
     <div className='border-b last:border-none dark:border-slate-600'>

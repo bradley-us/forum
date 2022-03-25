@@ -8,14 +8,10 @@ import ResponseBox from './min_components/ResponseBox'
 const BodyAskPanel = () => {
   return (
     <ContainerPagesX>
-      <div>
-        <MenuHeaderResponses />
-      </div>
+      <MenuHeaderResponses />
       
       <div className='w-full max-w-[1280px] rounded-lg mx-auto bg-white dark:bg-slate-800 dark:text-gray-300'>
         <ResponseBox />
-        <ResponseBox />
-
         <GiveResponse />
       </div>
     </ContainerPagesX>
