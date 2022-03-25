@@ -12,8 +12,8 @@ const HeaderDiscussionsPanel = () => {
     <div className='bg-white border-b dark:border-slate-600 dark:bg-slate-800'>
       <div>
         <div className='flex flex-col px-6 pt-5'>
-          <div className='flex flex-row items-end justify-between w-full py-3'>
-            <div className='flex flex-row items-center justify-start w-2/4 gap-5'>
+          <div className='flex flex-col items-center justify-between w-full gap-3 py-3 sm:flex-row flex-nowrap'>
+            <div className='flex flex-row items-center justify-start w-full gap-5 sm:w-auto'>
               <div>
                 <figure className='w-8'>
                   <img src={AngularIcon} alt='Programming Language Logo' />
@@ -31,7 +31,7 @@ const HeaderDiscussionsPanel = () => {
               </div>
             </div>
             
-            <div className='flex flex-row items-center justify-end w-2/4 gap-2'>
+            <div className='flex flex-wrap items-center justify-end w-full gap-2 sm:w-auto sm:flex-row'>
               <ButtonX
                 classNameBox='font-bold text-sm bg-emerald-100 text-emerald-500'
                 iconBtn={<PersonOutlineIcon sx={{fontSize: '20px'}} />}

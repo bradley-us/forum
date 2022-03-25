@@ -3,9 +3,7 @@ import AskPanel from '../components/AskPanel'
 
 const AskDashboard = () => {
   return (
-    <>
-      <AskPanel />
-    </>
+    <AskPanel />
   )
 }
 

@@ -3,9 +3,7 @@ import QuestionDashboard from './views/QuestionDashboard'
 
 const Question = () => {
   return (
-    <>
-      <QuestionDashboard />
-    </>
+   <QuestionDashboard />
   )
 }
 

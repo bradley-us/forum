@@ -8,7 +8,7 @@ const AllPages = () : JSX.Element => {
   
   setTimeout(() => {
     setIsLoadingPage(false)
-  }, 1500);
+  }, 500);
 
   return (
     <div className='mx-auto'>

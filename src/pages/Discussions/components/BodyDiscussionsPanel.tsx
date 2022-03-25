@@ -18,10 +18,26 @@ const BodyDiscussionsPanel = () => {
     setValue(newValue);
   };
 
-  const stylesForTableTitle = {
-    textTransform: 'capitalize',
-    fontWeight: 'bold',
-    color: '#999 !important',
+  const stylesForSelectedTab = {
+    
+    borderRadius: '10px',
+    border: '1px solid #ccc',
+    bgcolor: (localStorage.getItem('theme') === 'dark') ? '#0f172a' : '',
+    minHeight: 0,
+    fontSize: '12px',
+    p: '8px 8px',
+    fontWeight: 'black',
+    color: (localStorage.getItem('theme') === 'dark') ? '#cbd5e1 !important' : '#1e293b !important',
+    textTransform: 'none'
+  }
+
+  const stylesForNotSelectedTab = {
+    color: (localStorage.getItem('theme') === 'dark') ? '#cbd5e1 !important' : '#1e293b !important',
+    fontSize: '12px',
+    textTransform: 'none',
+    minHeight: 0,
+    p: '0 10px',
+    fontWeight: 'bold'
   }
 
   const AvatarsGroup = [
@@ -94,12 +110,12 @@ const BodyDiscussionsPanel = () => {
               <div className='w-[97%] mx-auto'>
                 <TabList onChange={handleChange} aria-label="lab API tabs example">
                   <Tab
-                    sx={stylesForTableTitle}
+                    sx={value === '1' ? stylesForSelectedTab : stylesForNotSelectedTab}
                     label="En tendencia"
                     value="1"
                   />
                   <Tab
-                    sx={stylesForTableTitle}
+                    sx={value === '2' ? stylesForSelectedTab : stylesForNotSelectedTab}
                     label="Más recientes"
                     value="2"
                   />

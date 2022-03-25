@@ -106,6 +106,9 @@ const UserPanel = (props:any) => {
         </MenuItem>
         <Divider />
         <MenuItem>
+          <Link to='/'>Home</Link>
+        </MenuItem>
+        <MenuItem>
           <Link to='/discussions'>Discusiones</Link>
         </MenuItem>
         <MenuItem>
