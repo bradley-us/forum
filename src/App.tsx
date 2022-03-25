@@ -17,7 +17,7 @@ function App(props:any) {
 
   const { authStatus } = props
 
-  const [isLogged, setIsLogged] = useState<any>(true)
+  const [isLogged, setIsLogged] = useState<any>(authStatus)
 
   useEffect(() => {
     if(authStatus === false) setIsLogged(authStatus)
@@ -35,12 +35,6 @@ function App(props:any) {
               </ProtectedRoute>
             } />
 
-            <Route path='/dashboard' element={
-              <ProtectedRoute userAuth={isLogged}>
-                <AllPages />
-              </ProtectedRoute>
-            } />
-
             <Route path='/login' element={
               <PublicRoute userAuth={isLogged}>
                 <Login />
@@ -51,11 +45,23 @@ function App(props:any) {
                 <Register />
               </PublicRoute>
             } />
-            <Route path='/*' element={<ErrorPage />} />
-            <Route path='/discussions' element={<Discussions />} />
-            <Route path='/asks' element={<Ask />} />
-            <Route path='/question' element={<Question />} />
 
+            <Route path='/asks' element={
+              <ProtectedRoute userAuth={isLogged}>
+                <Ask />
+              </ProtectedRoute>
+            } />
+            <Route path='/question' element={
+              <ProtectedRoute userAuth={isLogged}>
+                <Question />
+              </ProtectedRoute>
+            } />
+            <Route path='/discussions' element={
+              <ProtectedRoute userAuth={isLogged}>
+                <Discussions />
+              </ProtectedRoute>
+            } />
+            <Route path='/*' element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </div>
@@ -64,7 +70,7 @@ function App(props:any) {
   );
 }
 
-const ProtectedRoute = ({userAuth, children}:{userAuth:boolean, children?:any}) => {
+export const ProtectedRoute = ({userAuth, children}:{userAuth:boolean, children?:any}) => {
   
   if(!userAuth) {
     return <Navigate to='/login' replace />
@@ -73,7 +79,7 @@ const ProtectedRoute = ({userAuth, children}:{userAuth:boolean, children?:any}) 
   return children
 }
 
-const PublicRoute = ({userAuth, children}:{userAuth:boolean, children?:any}) => {
+export const PublicRoute = ({userAuth, children}:{userAuth:boolean, children?:any}) => {
   
   if(userAuth) {
     return <Navigate to='/' replace />

@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import LoadingPage from '../app_components/loadingPage/LoadingPage'
-import Ask from './Asks/Ask'
-import Discussions from './Discussions/Discussions'
 import Home from './Home/Home'
-import Question from './Question/Question'
 
 const AllPages = () : JSX.Element => {
 
@@ -21,9 +18,6 @@ const AllPages = () : JSX.Element => {
         :
         (<Home />)
       }
-      {/* <Discussions /> */}
-      {/* <Ask /> */}
-      {/* <Question /> */}
     </div>
   )
 }

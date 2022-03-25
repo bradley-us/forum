@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setUserAuthFalse } from '../../../../store/actions/actions'
+import { Link } from 'react-router-dom'
 
 import userPhoto from '../../../../assets/avatar-user.jpg'
 
@@ -102,6 +103,16 @@ const UserPanel = (props:any) => {
             <Logout fontSize="small" />
           </ListItemIcon>
           Cerrar sesión
+        </MenuItem>
+        <Divider />
+        <MenuItem>
+          <Link to='/discussions'>Discusiones</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to='/question'>Hacer pregunta</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to='/asks'>Preguntas Panel</Link>
         </MenuItem>
       </Menu>
     </React.Fragment>
